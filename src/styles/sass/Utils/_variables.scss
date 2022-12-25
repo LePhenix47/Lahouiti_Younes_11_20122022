@@ -9,13 +9,29 @@ $page-bg-color: white;
 
 $footer-bg-color: black;
 
+$scrollbar-track-color: #e4e4e4;
+
+
+$scrollbar-thumb-color: rgb(159, 159, 159);
+$scrollbar-thumb-color--hover: darken($scrollbar-thumb-color, 10);
+$scrollbar-thumb-color--active: darken($scrollbar-thumb-color, 20);
+
+
+
 //CSS variables
-
-
 :root {
+    //Color variables
     --bg-color-primary: #{$bg-color-primary};
     --text-color-primary: #{$text-color-primary};
     --text-color-secondary: #{$text-color-secondary};
     --page-bg-color: #{$page-bg-color};
     --footer-bg-color: #{$footer-bg-color};
+
+    --scrollbar-track-color: #{$scrollbar-track-color};
+
+    --scrollbar-thumb-color: #{$scrollbar-thumb-color};
+    --scrollbar-thumb-color--hover: #{$scrollbar-thumb-color--hover};
+    --scrollbar-thumb-color--active: #{$scrollbar-thumb-color--active};
+
+    //Pixel variables
 }

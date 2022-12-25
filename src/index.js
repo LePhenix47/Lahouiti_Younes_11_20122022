@@ -1,13 +1,36 @@
+//React
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import "./index.css";
-import App from "./App";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Switch,
+} from "react-router-dom";
+
 import reportWebVitals from "./reportWebVitals";
+
+//Components
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+
+//Pages
+import Home from "./pages/Home/Home";
+//CSS Styles
+import "./styles/css/style.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <Router>
+      <Switch>
+        <Route path="/test">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+    <Footer />
   </React.StrictMode>
 );
 

@@ -4,8 +4,24 @@
     //SASS variables
     $page-bg-color: #171717;
 
+    $scrollbar-track-color: rgb(27, 27, 27);
+
+    $scrollbar-thumb-color: rgb(96, 96, 96);
+
+    $scrollbar-thumb-color--hover: lighten($scrollbar-thumb-color, 10);
+
+    $scrollbar-thumb-color--active: lighten($scrollbar-thumb-color, 20);
+
     //CSS variables
     :root {
         --page-bg-color: #{$page-bg-color};
+
+        --scrollbar-track-color: #{$scrollbar-track-color};
+
+        --scrollbar-thumb-color: #{$scrollbar-thumb-color};
+
+        --scrollbar-thumb-color--hover: #{$scrollbar-thumb-color--hover};
+
+        --scrollbar-thumb-color--active: #{$scrollbar-thumb-color--active};
     }
 }
