@@ -1,0 +1,21 @@
+//SASS color variables
+$bg-color-primary: #FF6060;
+
+$text-color-primary: #FF6060;
+
+$text-color-secondary: white;
+
+$page-bg-color: white;
+
+$footer-bg-color: black;
+
+//CSS variables
+
+
+:root {
+    --bg-color-primary: #{$bg-color-primary};
+    --text-color-primary: #{$text-color-primary};
+    --text-color-secondary: #{$text-color-secondary};
+    --page-bg-color: #{$page-bg-color};
+    --footer-bg-color: #{$footer-bg-color};
+}

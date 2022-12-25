@@ -1,0 +1,11 @@
+//Dark theme
+
+@media (prefers-color-scheme: dark) {
+    //SASS variables
+    $page-bg-color: #171717;
+
+    //CSS variables
+    :root {
+        --page-bg-color: #{$page-bg-color};
+    }
+}
