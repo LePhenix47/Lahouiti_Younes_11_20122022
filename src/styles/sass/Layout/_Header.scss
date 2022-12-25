@@ -7,10 +7,18 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 25px 50px;
+    padding: 25px 5%;
 
     color: var(--text-color-primary);
-    // &__logo {}
+
+
+
+    &__logo {
+        @include mobile-only {
+            width: 140px;
+            height: 47px;
+        }
+    }
 
     // &__navigation-bar {}
 
@@ -19,15 +27,26 @@
 
         gap: 50px;
 
+        @include mobile-only {
+            gap: 15px;
+        }
+
 
     }
 
     &__list-item {
+        font-size: 24px;
         font-weight: 500;
+
         transition: font-weight 50ms ease-out;
-        cursor: pointer;
+
+        @include mobile-only {
+            text-transform: uppercase;
+            font-size: 12px;
+        }
 
         &:hover {
+            cursor: pointer;
             font-weight: 600;
             text-decoration: underline;
         }

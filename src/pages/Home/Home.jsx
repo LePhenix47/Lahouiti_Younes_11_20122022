@@ -1,8 +1,13 @@
-function Home(){
+import PageBanner from "../../components/PageBanner/PageBanner";
+import RealEstateList from "../../components/RealEstateList/RealEstateList";
 
-    return (
-        <main className="home">Home </main>
-    )
+function Home() {
+  return (
+    <main className="home">
+      <PageBanner />
+      <RealEstateList />
+    </main>
+  );
 }
 
-export default Home
+export default Home;

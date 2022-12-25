@@ -1,41 +1,127 @@
 @use "../Utils/" as *;
 
-.App {
-    text-align: center;
-}
+.home {
+    margin: 0 5%;
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
+    &__banner {
+        position: relative;
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+        width: 100%;
+        height: 225px;
+        min-height: 225px;
+
+        @include mobile-only {
+            height: 110px;
+            min-height: 110px;
+            margin-bottom: 30px;
+        }
+
+        margin-bottom: 40px;
+
+        overflow: hidden;
+
+        border-radius: 25px;
+
+
+        &-slogan {
+            @include absolute-center;
+            width: inherit;
+            height: inherit;
+
+            text-align: center;
+
+            @include center-flex;
+
+            font-size: 48px;
+
+            @include mobile-only {
+                font-size: 24px;
+            }
+
+            font-weight: 500;
+
+            color: var(--text-color-secondary);
+
+            background-image: linear-gradient(90deg, var(--transparent-grey), transparent);
+        }
     }
-}
 
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
+    &__banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
-    to {
-        transform: rotate(360deg);
+    &__real-estate {
+        &-list {
+            margin: 0 2.5% 40px 2.5%;
+
+            @include grid(auto, 3, 40px);
+
+            @include tablet-only {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include mobile-only {
+                margin: 0 0 40px 0;
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        &-item {
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+
+            position: relative;
+
+            aspect-ratio: 1/1;
+            width: 100%;
+
+            color: var(--text-color-secondary);
+            background-color: var(--bg-color-primary);
+
+
+            border-radius: 10px;
+
+            @include tablet-only {
+                width: 100%;
+            }
+
+            @include mobile-only {
+                max-height: 255px;
+                width: 100%;
+
+            }
+
+            &::before {
+                @include absolute-center;
+                content: "";
+
+                background-image: linear-gradient(0deg, var(--transparent-black), transparent);
+                aspect-ratio: 1/1;
+                width: 101%;
+
+                @include tablet-only {
+                    width: 101%;
+                }
+
+                @include mobile-only {
+                    width: 101%;
+                }
+
+                border-radius: 10px;
+            }
+        }
+
+        &-title {
+            width: 50%;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        // &-thumbnail {}
     }
 }

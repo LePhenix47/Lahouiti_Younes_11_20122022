@@ -1,11 +1,11 @@
 @use "../Utils/" as *;
 
-html {
+* {
     &::-webkit-scrollbar {
         background-color: var(--scrollbar-track-color);
         border-radius: 100vmax;
         margin-block: 5px;
-        width: 10px;
+        width: 6px;
         min-height: 10px;
     }
 
