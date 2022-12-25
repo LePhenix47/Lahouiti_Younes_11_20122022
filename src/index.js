@@ -1,21 +1,18 @@
 //React
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Switch,
-} from "react-router-dom";
-
 import reportWebVitals from "./reportWebVitals";
+
+//React Router (v6)
+import { BrowserRouter as Router } from "react-router-dom";
 
 //Components
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 //Pages
-import Home from "./pages/Home/Home";
+import App from "./App";
+
 //CSS Styles
 import "./styles/css/style.css";
 
@@ -24,11 +21,7 @@ root.render(
   <React.StrictMode>
     <Header />
     <Router>
-      <Switch>
-        <Route path="/test">
-          <Home />
-        </Route>
-      </Switch>
+      <App />
     </Router>
     <Footer />
   </React.StrictMode>

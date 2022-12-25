@@ -1,3 +1,37 @@
 @use "../Utils/" as *;
 
-.header {}
+.header {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px 50px;
+
+    color: var(--text-color-primary);
+    // &__logo {}
+
+    // &__navigation-bar {}
+
+    &__unordered-list {
+        display: flex;
+
+        gap: 50px;
+
+
+    }
+
+    &__list-item {
+        font-weight: 500;
+        transition: font-weight 50ms ease-out;
+        cursor: pointer;
+
+        &:hover {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+
+    }
+}

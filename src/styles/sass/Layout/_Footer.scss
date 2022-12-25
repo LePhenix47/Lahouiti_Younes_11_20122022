@@ -1,7 +1,18 @@
 @use "../Utils/" as *;
 
 .footer {
+    font-weight: 500;
+
     background-color: var(--footer-bg-color);
 
     color: var(--text-color-secondary);
+
+    min-height: 210px;
+    width: 100%;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
