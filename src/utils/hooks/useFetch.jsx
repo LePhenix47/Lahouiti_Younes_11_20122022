@@ -26,7 +26,7 @@ export function useHook(url) {
         setData(dataFromFetch);
       } catch (APIError) {
         console.error(
-          `API Error! An unexpected error has occured: ${APIError}`
+          `⚠ API Error! An unexpected error has occured: ${APIError}`
         );
         setError(true);
         setErrorMessage(APIError);
@@ -43,8 +43,8 @@ export function useHook(url) {
   }, [url]);
 
   if (hasError) {
-    return { data, isLoading, hasError, errorMessage };
+    return { isLoading, hasError, errorMessage };
   }
 
-  return { data, isLoading, hasError };
+  return { data, isLoading };
 }

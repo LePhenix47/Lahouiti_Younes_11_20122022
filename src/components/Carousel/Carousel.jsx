@@ -7,13 +7,20 @@ function Carousel() {
 
   const urlTest3 =
     "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHw5fHxyYW5kb218ZW58MHx8MXx8MTY3MjA0MTkxOQ&ixlib=rb-4.0.3&q=80&w=1080";
+  /*
+Will contain 3 images :
 
+1st one - For the previous image
+
+2nd one - For the current image
+
+3rd one - For the next image
+*/
   return (
-    <section className="housing-file__carousel">
-      Carousel
+    <section className="carousel">
       {/*Left arrow*/}
       <svg
-        className="housing-file__arrow housing-file__arrow--left"
+        className="carousel__arrow carousel__arrow--left"
         width="28"
         height="17"
         viewBox="0 0 28 17"
@@ -27,7 +34,7 @@ function Carousel() {
       </svg>
       {/*Right arrow*/}
       <svg
-        className="housing-file__arrow housing-file__arrow--right"
+        className="carousel__arrow carousel__arrow--right"
         width="28"
         height="17"
         viewBox="0 0 28 17"
@@ -39,30 +46,21 @@ function Carousel() {
           fill="currentColor"
         />
       </svg>
-      <figure className="housing-file__images-container">
-        {/*
-Will contain 3 images :
-
-1st one - For the previous image
-
-2nd one - For the current image
-
-3rd one - For the next image
-    
-*/}
+      {/*Carousel*/}
+      <figure className="carousel__images-container">
         <img
           src={urlTest1}
           alt="Test"
-          className={"housing-file__image housing-file__image--out-left"}
+          className={"carousel__image carousel__image--out-left"}
         />
-        <img src={urlTest2} alt="Test" className={"housing-file__image "} />
+        <img src={urlTest2} alt="Test" className={"carousel__image "} />
         <img
           src={urlTest3}
           alt="Test"
-          className={"housing-file__image housing-file__image--out-right"}
+          className={"carousel__image carousel__image--out-right"}
         />
       </figure>
-      <p className="housing-file__image-index">1/4</p>
+      <p className="carousel__image-index">1/4</p>
     </section>
   );
 }

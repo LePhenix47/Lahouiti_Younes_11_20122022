@@ -3,11 +3,54 @@
 
 .housing-file {
 
-    &__carousel {
-        // background-color: red;
-        position: relative;
-        overflow: hidden;
+    &__housing-profile-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
     }
+
+
+    &__title-location-container {
+        flex: 2;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 36px;
+    }
+
+    &__location {
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+
+    &__tags {
+        display: flex;
+        gap: 10px;
+    }
+
+
+    &__profile-star-rating {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 10px;
+    }
+
+    &__dropdown-menus {
+        display: flex;
+
+    }
+}
+
+.carousel {
+
+    color: var(--text-color-secondary);
+    position: relative;
+    overflow: hidden;
+
 
     &__arrow {
         position: absolute;
@@ -37,8 +80,7 @@
         height: 415px;
         max-height: 415px;
 
-        object-fit: cover;
-        object-position: center;
+        @include fit-image;
 
         border-radius: 25px;
 
@@ -83,6 +125,76 @@
         left: 50%;
         translate: -50% 0;
     }
+}
+
+.tag {
+
+    &__text {
+        background-color: var(--text-color-primary);
+        color: var(--text-color-secondary);
+
+        font-size: 14px;
+
+        padding: 3px 40px;
+
+        border-radius: 10px;
+    }
+}
+
+.housing-profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    gap: 20px;
+
+    &__full-name {}
+
+    &__picture {
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+        height: 64px;
+
+        @include fit-image;
+    }
+}
 
 
+.star-rating {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    &__star {
+        &--full {
+            color: var(--star-color-full);
+        }
+
+        &--empty {
+            color: var(--star-color-empty);
+        }
+    }
+}
+
+.dropdown {
+    background-color: darkblue;
+
+    &__button {
+        position: relative;
+
+        width: 582px;
+        height: 52px;
+
+        border-radius: 10px;
+    }
+
+
+    &__content {
+        height: 0px;
+        transition: height 450ms ease-in-out;
+
+        &--active {
+            height: 200px;
+        }
+    }
 }

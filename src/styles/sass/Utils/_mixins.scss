@@ -54,6 +54,9 @@
     left: 50%;
     top: 50%;
     translate: -50% -50%;
+}
 
-
+@mixin fit-image {
+    object-fit: cover;
+    object-position: center;
 }
