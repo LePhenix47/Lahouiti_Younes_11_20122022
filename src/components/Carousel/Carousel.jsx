@@ -1,0 +1,70 @@
+function Carousel() {
+  const urlTest1 =
+    "https://images.unsplash.com/photo-1493612276216-ee3925520721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHwxfHxyYW5kb218ZW58MHx8MXx8MTY3MjA0MTkxOQ&ixlib=rb-4.0.3&q=80&w=1080";
+
+  const urlTest2 =
+    "https://images.unsplash.com/photo-1550686041-366ad85a1355?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHwxNXx8cmFuZG9tfGVufDB8fDF8fDE2NzIwNDE5MTk&ixlib=rb-4.0.3&q=80&w=1080";
+
+  const urlTest3 =
+    "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHw5fHxyYW5kb218ZW58MHx8MXx8MTY3MjA0MTkxOQ&ixlib=rb-4.0.3&q=80&w=1080";
+
+  return (
+    <section className="housing-file__carousel">
+      Carousel
+      {/*Left arrow*/}
+      <svg
+        className="housing-file__arrow housing-file__arrow--left"
+        width="28"
+        height="17"
+        viewBox="0 0 28 17"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M24.84 16.3466L27.2 13.9733L14 0.786621L0.80001 13.9866L3.16001 16.3466L14 5.50662L24.84 16.3466Z"
+          fill="currentColor"
+        />
+      </svg>
+      {/*Right arrow*/}
+      <svg
+        className="housing-file__arrow housing-file__arrow--right"
+        width="28"
+        height="17"
+        viewBox="0 0 28 17"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M24.84 16.3466L27.2 13.9733L14 0.786621L0.80001 13.9866L3.16001 16.3466L14 5.50662L24.84 16.3466Z"
+          fill="currentColor"
+        />
+      </svg>
+      <figure className="housing-file__images-container">
+        {/*
+Will contain 3 images :
+
+1st one - For the previous image
+
+2nd one - For the current image
+
+3rd one - For the next image
+    
+*/}
+        <img
+          src={urlTest1}
+          alt="Test"
+          className={"housing-file__image housing-file__image--out-left"}
+        />
+        <img src={urlTest2} alt="Test" className={"housing-file__image "} />
+        <img
+          src={urlTest3}
+          alt="Test"
+          className={"housing-file__image housing-file__image--out-right"}
+        />
+      </figure>
+      <p className="housing-file__image-index">1/4</p>
+    </section>
+  );
+}
+
+export default Carousel;
