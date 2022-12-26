@@ -40,3 +40,12 @@ body {
 ul {
     list-style-type: none;
 }
+
+a {
+    text-decoration: none;
+
+    &:visited {
+        color: var(--text-color-primary);
+        text-decoration: none;
+    }
+}

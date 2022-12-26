@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/housing-file" element={<HousingFile />} />
+      <Route path="/housing-file/:id" element={<HousingFile />} />
       <Route path="/*" element={<Error404 />} />
     </Routes>
   );

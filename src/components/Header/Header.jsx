@@ -1,5 +1,5 @@
 //React Router (v6)
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -36,11 +36,10 @@ function Header() {
       <nav className="header__navigation-bar">
         <ul className="header__unordered-list">
           <li className="header__list-item">
-            {/* <Link to="/">Accueil</Link> */}
-            Accueil
+            <NavLink to="/">Accueil</NavLink>
           </li>
           <li className="header__list-item">
-            {/* <Link to="/about">À propos</Link> */}À propos
+            <NavLink to="/about">À propos</NavLink>
           </li>
         </ul>
       </nav>

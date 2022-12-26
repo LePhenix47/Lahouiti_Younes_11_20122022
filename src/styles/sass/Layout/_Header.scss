@@ -7,7 +7,13 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 25px 5%;
+    padding: 50px 5%;
+
+    @include mobile-only {
+        padding: 25px 5%;
+
+    }
+
 
     color: var(--text-color-primary);
 
@@ -37,6 +43,7 @@
     &__list-item {
         font-size: 24px;
         font-weight: 500;
+        text-decoration: none;
 
         transition: font-weight 50ms ease-out;
 
