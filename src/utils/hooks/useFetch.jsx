@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useHook(url) {
+export function useFetch(url) {
   const [data, setData] = useState({});
 
   const [isLoading, setLoading] = useState(false);
