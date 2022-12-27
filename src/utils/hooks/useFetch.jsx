@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { log } from "../functions/helperFunctions";
+
 export function useFetch(url) {
   const [data, setData] = useState({});
 
@@ -13,6 +15,7 @@ export function useFetch(url) {
   useEffect(() => {
     const controller = new AbortController(); //We need the controller in case we make multiple successions of fetch requests
 
+    log({ url });
     setLoading(true);
     if (!url) {
       return;
@@ -21,12 +24,13 @@ export function useFetch(url) {
     async function fetchData() {
       try {
         const response = await fetch(url);
+
         const dataFromFetch = await response.json();
 
         setData(dataFromFetch);
       } catch (APIError) {
         console.error(
-          `⚠ API Error! An unexpected error has occured: ${APIError}`
+          `⚠ API Error found! An unexpected error has occured while attemting to make a call to the API → ${APIError}`
         );
         setError(true);
         setErrorMessage(APIError);
@@ -46,5 +50,5 @@ export function useFetch(url) {
     return { isLoading, hasError, errorMessage };
   }
 
-  return { data, isLoading };
+  return { data, isLoading, hasError };
 }

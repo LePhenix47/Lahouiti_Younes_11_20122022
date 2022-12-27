@@ -1,4 +1,4 @@
-//Function that simply logs out a message with a simpler syntax
+//Function that prints out a message in the console but with a simpler syntax
 export function log(message) {
   return console.log(message);
 }
@@ -12,24 +12,22 @@ export function formatText(string, option) {
   switch (formattedOption) {
     case "lowercase": {
       for (let i = 0; i < stringArray.length; i++) {
-        let word = stringArray[i];
-        stringArray[i] = word.toLowerCase();
+        stringArray[i] = stringArray[i].toLowerCase();
       }
       return stringArray;
     }
 
     case "uppercase": {
       for (let i = 0; i < stringArray.length; i++) {
-        let word = stringArray[i];
-        stringArray[i] = word.toUpperCase();
+        stringArray[i] = stringArray[i].toUpperCase();
       }
       return stringArray;
     }
     case "titlecase": {
       for (let i = 0; i < stringArray.length; i++) {
-        let word = stringArray[i];
         stringArray[i] =
-          word.substring(0, 1).toUpperCase() + word.slice(1).toLowerCase();
+          stringArray[i].substring(0, 1).toUpperCase() +
+          stringArray[i].slice(1).toLowerCase();
       }
       stringArray = stringArray.concat();
       return stringArray;

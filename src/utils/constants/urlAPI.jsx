@@ -1,1 +1,1 @@
-export const urlAPI = "../../assets/mocks/estateData.json";
+export const urlAPI = "http://localhost:3000/mocks/estateData.json";

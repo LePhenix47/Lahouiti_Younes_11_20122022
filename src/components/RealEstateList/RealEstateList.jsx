@@ -7,15 +7,16 @@ import { Link } from "react-router-dom";
 //Utils
 import { urlAPI } from "../../utils/constants/urlAPI";
 import { useFetch } from "../../utils/hooks/useFetch";
-import { log, formatText } from "../../utils/functions/helperFunctions";
+import { log } from "../../utils/functions/helperFunctions";
 
 function RealEstateList() {
   const urlTest =
     "https://images.unsplash.com/photo-1493612276216-ee3925520721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHwxfHxyYW5kb218ZW58MHx8MXx8MTY3MjA0MTkxOQ&ixlib=rb-4.0.3&q=80&w=1080";
 
-  log(useFetch(urlAPI));
+  const { data, isLoading, hasError } = useFetch(urlAPI);
 
-  log(formatText("BRUH", "titlecase"));
+  log({ data });
+
   return (
     <section className="home__real-estate-list">
       {/* Will make it dynamic with JS  and react hooks later */}
