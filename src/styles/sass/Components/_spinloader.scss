@@ -1,0 +1,24 @@
+@use "../Utils/" as *;
+
+.spin-loader {
+    width: 100%;
+    height: 300px;
+    order: -2;
+    @include center-flex;
+
+    &__circle {
+        aspect-ratio: 1/1;
+        height: 50%;
+
+        border-radius: 50%;
+
+        background-color: transparent;
+
+        --border-circle: 12px;
+        border-block: var(--border-circle) solid var(--star-color-full);
+        border-left: var(--border-circle) solid var(--star-color-empty);
+        border-right: var(--border-circle) solid var(--star-color-empty);
+
+        animation: full-spin 750ms ease-in-out infinite both;
+    }
+}

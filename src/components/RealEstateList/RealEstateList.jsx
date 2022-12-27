@@ -1,8 +1,11 @@
 //React
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 //React Router (v6)
 import { Link } from "react-router-dom";
+
+//Components
+import SpinLoader from "../SpinLoader/SpinLoader";
 
 //Utils
 import { urlAPI } from "../../utils/constants/urlAPI";
@@ -10,17 +13,10 @@ import { useFetch } from "../../utils/hooks/useFetch";
 import { log } from "../../utils/functions/helperFunctions";
 
 function RealEstateList() {
-  const urlTest =
-    "https://images.unsplash.com/photo-1493612276216-ee3925520721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHwxfHxyYW5kb218ZW58MHx8MXx8MTY3MjA0MTkxOQ&ixlib=rb-4.0.3&q=80&w=1080";
-
   const { data, isLoading, hasError } = useFetch(urlAPI);
-
-  log({ data });
 
   return (
     <section className="home__real-estate-list">
-      {/* Will make it dynamic with JS  and react hooks later */}
-
       <template>
         <Link to={`/housing-file/${{}}`}>
           <div className="home__real-estate-item">
@@ -30,18 +26,33 @@ function RealEstateList() {
         </Link>
       </template>
 
-      <Link to="/housing-file/69">
-        <div className="home__real-estate-item">
-          <p className="home__real-estate-title">Titre de la location</p>
-          <img
-            className="home__real-estate-thumbnail"
-            alt="test"
-            src={urlTest}
-          />
-        </div>
-      </Link>
-
-      {/*        */}
+      {
+        //
+        isLoading ? (
+          <SpinLoader />
+        ) : (
+          data.map((estateBuilding, index) => {
+            const { id, title, cover } = estateBuilding;
+            return (
+              <Link
+                to={`/housing-file/${id}`}
+                key={`${id}-${index}`}
+                className="home__real-estate-link"
+              >
+                <div className="home__real-estate-item">
+                  <p className="home__real-estate-title">{title}</p>
+                  <img
+                    className="home__real-estate-thumbnail"
+                    alt="test"
+                    src={cover}
+                  />
+                </div>
+              </Link>
+            );
+          })
+        )
+        //
+      }
     </section>
   );
 }
