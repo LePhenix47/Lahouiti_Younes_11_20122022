@@ -1,3 +1,29 @@
 @use "../Utils/" as *;
 
-.error-404 {}
+.error-404 {
+    @include center-flex-column(75px);
+
+    &__text {
+        text-align: center;
+    }
+
+
+    &__title {
+        font-weight: 700;
+        font-size: 288px;
+    }
+
+    &__sub-title {
+        font-size: 36px;
+    }
+
+    &__link {
+        text-decoration: underline;
+        color: var(--text-color-primary);
+        margin-bottom: 125px;
+
+        &:hover {
+            color: var(--text-color-primary--hover)
+        }
+    }
+}

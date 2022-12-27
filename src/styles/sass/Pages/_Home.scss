@@ -3,24 +3,13 @@
 .home {
 
     &__banner {
-        position: relative;
-
-        width: 100%;
-        height: 225px;
-        min-height: 225px;
+        @include banner-style;
 
         @include mobile-only {
             height: 110px;
             min-height: 110px;
             margin-bottom: 30px;
         }
-
-        margin-bottom: 50px;
-
-        overflow: hidden;
-
-        border-radius: 25px;
-
 
         &-slogan {
             @include absolute-center;
@@ -49,7 +38,6 @@
         width: 100%;
         height: 100%;
         @include fit-image;
-        object-position: center;
     }
 
     &__real-estate {

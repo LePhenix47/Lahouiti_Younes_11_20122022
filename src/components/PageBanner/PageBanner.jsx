@@ -1,11 +1,9 @@
-import banner from "../../assets/images/photos/banner.png";
-
-function PageBanner() {
+function PageBanner({ classNameForBanner, text, source }) {
   return (
-    <section className="home__banner">
-      <p className="home__banner-slogan">Chez vous, partout et ailleurs</p>
+    <section className={`${classNameForBanner}`}>
+      {text && <p className="home__banner-slogan">{text}</p>}
       <img
-        src={banner}
+        src={`${source}`}
         alt="Bannière de la page d'accueil de Kasa"
         className="home__banner-image"
       />

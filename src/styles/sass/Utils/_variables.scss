@@ -2,12 +2,16 @@
 $bg-color-primary: #FF6060;
 
 $text-color-primary: #FF6060;
+$text-color-primary--hover: #ff2e2e;
 
 $text-color-secondary: white;
 
 $star-color-full: #FF6060;
 
 $star-color-empty: #E3E3E3;
+
+$selection-bg-color: #009d9d;
+$selection-color: black;
 
 $transparent-grey: rgba(128, 128, 128, 0.5);
 $transparent-black: rgba(0, 0, 0, 0.55);
@@ -30,7 +34,12 @@ $scrollbar-thumb-color--active: darken($scrollbar-thumb-color, 20);
     //Color variables
     --bg-color-primary: #{$bg-color-primary};
     --text-color-primary: #{$text-color-primary};
+    --text-color-primary--hover: #{$text-color-primary--hover};
+
     --text-color-secondary: #{$text-color-secondary};
+
+    --selection-bg-color: #{$selection-bg-color};
+    --selection-color: #{$selection-color};
 
     --star-color-full: #{$star-color-full};
     --star-color-empty: #{$star-color-empty};

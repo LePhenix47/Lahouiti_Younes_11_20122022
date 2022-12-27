@@ -1,1 +1,22 @@
 @use "../Utils/" as *;
+
+.about {
+
+    &__banner {
+        @include banner-style;
+
+        @include mobile-only {
+            height: 250px;
+            min-height: 110px;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__dropdowns {
+        margin: 0 2.5% 40px 2.5%;
+
+        @include mobile-only {
+            margin: 0
+        }
+    }
+}

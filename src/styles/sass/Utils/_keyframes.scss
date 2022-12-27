@@ -1,3 +1,13 @@
+@-webkit-keyframes slide-out-right {
+    from {
+        translate: 0%;
+    }
+
+    to {
+        translate: 100%;
+    }
+}
+
 @keyframes slide-out-right {
     from {
         translate: 0%;
@@ -5,6 +15,16 @@
 
     to {
         translate: 100%;
+    }
+}
+
+@-webkit-keyframes slide-out-left {
+    from {
+        translate: 0%;
+    }
+
+    to {
+        translate: -100%;
     }
 }
 
