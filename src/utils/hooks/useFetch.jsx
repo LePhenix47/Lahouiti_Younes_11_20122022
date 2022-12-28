@@ -15,7 +15,7 @@ export function useFetch(url) {
   useEffect(() => {
     const controller = new AbortController(); //We need the controller in case we make multiple successions of fetch requests
 
-    log({ url });
+    log("Fetch →", { url });
     setLoading(true);
     if (!url) {
       return;

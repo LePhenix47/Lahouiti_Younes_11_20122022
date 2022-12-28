@@ -10,7 +10,7 @@ import SpinLoader from "../SpinLoader/SpinLoader";
 //Utils
 import { urlAPI } from "../../utils/constants/urlAPI";
 import { useFetch } from "../../utils/hooks/useFetch";
-import { log } from "../../utils/functions/helperFunctions";
+// import { log } from "../../utils/functions/helperFunctions";
 
 function RealEstateList() {
   const { data, isLoading, hasError } = useFetch(urlAPI);

@@ -5,6 +5,16 @@
     height: 300px;
     order: -2;
     @include center-flex;
+    grid-column-start: 2;
+
+    @include tablet-only {
+        grid-column-start: 1;
+    }
+
+    @include mobile-only {
+        grid-column-start: 1;
+
+    }
 
     &__circle {
         aspect-ratio: 1/1;
