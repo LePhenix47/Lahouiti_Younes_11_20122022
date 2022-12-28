@@ -234,6 +234,7 @@
 
 .dropdown {
     position: relative; //Relative to the label
+    flex: 1;
 
     &__label {
         position: absolute;
@@ -277,7 +278,7 @@
         transition: height 350ms ease-in-out;
 
         &--active {
-            height: min(150px, 350px);
+            height: fit-content;
         }
     }
 }

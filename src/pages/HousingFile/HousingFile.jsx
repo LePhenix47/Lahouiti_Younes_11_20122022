@@ -9,65 +9,75 @@ import HousingProfile from "../../components/HousingProfile/HousingProfile";
 import StarRating from "../../components/StarRating/StarRating";
 
 //Utils
+import { log } from "../../utils/functions/helperFunctions";
 import { urlAPI } from "../../utils/constants/urlAPI";
 import { useFetch } from "../../utils/hooks/useFetch";
-import { log } from "../../utils/functions/helperFunctions";
 
 //Page
 function HousingFile() {
   const { id } = useParams();
 
-  log({ id });
-
-  const { data, isLoading, hasError } = useFetch(urlAPI); //async
-
-  log({ data });
+  const { data, isLoading, hasError } = useFetch(urlAPI);
 
   const arrayOfIds = data.map((estateData) => {
     return estateData.id;
   });
 
-  log({ arrayOfIds });
   const idInUrlParamsExists = arrayOfIds.some((idString) => {
     return idString === id;
   });
 
-  log({ id, data, arrayOfIds, idInUrlParamsExists });
-
+  log({ id, data, isLoading, hasError, arrayOfIds, idInUrlParamsExists });
   if (!idInUrlParamsExists) {
-    return <Navigate to="/404" replace={true} />;
+    return <Navigate to="/Error_Page_404" replace={true} />;
   }
-  //  const { data, isLoading, hasError } = useFetch(urlAPI);
+
+  const indexOfHousing = arrayOfIds.findIndex((idString) => {
+    return idString === id;
+  });
+
+  const dataOfHousing = data.filter((idString, index) => {
+    return index === indexOfHousing;
+  });
+
+  log({ indexOfHousing, dataOfHousing });
+  const {
+    title,
+    pictures,
+    description,
+    rating,
+    host,
+    location,
+    equipments,
+    tags,
+  } = dataOfHousing[0];
+
   return (
     <main className="housing-file">
-      <Carousel />
+      <Carousel pictures={pictures} />
 
       <div className="housing-file__housing-profile-container">
         <section className="housing-file__title-location-container">
-          <h1 className="housing-file__title">
-            Cozy loft on the Canal Deez Nuts
-          </h1>
-          <h2 className="housing-file__location">Ohio, ohio</h2>
+          <h1 className="housing-file__title">{title}</h1>
+          <h2 className="housing-file__location">{location}</h2>
           <ul className="housing-file__tags">
-            <li>
-              <Tag textValue={""} />
-            </li>
-            <li>
-              <Tag textValue={""} />
-            </li>
-            <li>
-              <Tag textValue={""} />
-            </li>
+            {tags.map((tag, index) => {
+              return (
+                <li key={`${tag}-${index}`}>
+                  <Tag textValue={tag} />
+                </li>
+              );
+            })}
           </ul>
         </section>
         <section className="housing-file__profile-star-rating">
-          <HousingProfile />
-          <StarRating />
+          <HousingProfile profileData={host} />
+          <StarRating fullStars={rating} />
         </section>
       </div>
       <section className="housing-file__dropdown-menus">
-        <Dropdown textType="text" />
-        <Dropdown textType="list" />
+        <Dropdown textType="Description" textValue={description} />
+        <Dropdown textType="Équipements" textValue={equipments} />
       </section>
     </main>
   );

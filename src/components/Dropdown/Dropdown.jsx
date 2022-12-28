@@ -1,7 +1,35 @@
 import { useState } from "react";
 
-function Dropdown() {
+function Dropdown({ textType, textValue }) {
   const [isCollapsed, setCollapsed] = useState(false);
+
+  let content = null;
+
+  const textIsAList = typeof textValue === "object"; //Arrays in JS are prototypes → kinda like objects
+
+  if (textIsAList) {
+    content = (
+      <ul
+        className={`dropdown__text ${
+          isCollapsed ? "dropdown__text--active" : ""
+        }`}
+      >
+        {textValue.map((item, index) => {
+          return <li key={`${item}-${index}`}>{item}</li>;
+        })}
+      </ul>
+    );
+  } else {
+    content = (
+      <p
+        className={`dropdown__text ${
+          isCollapsed ? "dropdown__text--active" : ""
+        }`}
+      >
+        {textValue}
+      </p>
+    );
+  }
 
   return (
     <section className="dropdown">
@@ -9,7 +37,7 @@ function Dropdown() {
         <label
           htmlFor="test"
           className={`dropdown__label ${
-            isCollapsed && "dropdown__label--active"
+            isCollapsed ? "dropdown__label--active" : ""
           }`}
         >
           <svg
@@ -34,22 +62,10 @@ function Dropdown() {
             setCollapsed(!isCollapsed);
           }}
         >
-          dropdown button
+          {textType}
         </button>
       </div>
-      <div className="dropdown__content">
-        <p
-          className={`dropdown__text ${
-            isCollapsed && "dropdown__text--active"
-          }`}
-        >
-          Vous serez à 50m du canal Saint-martin où vous pourrez pique-niquer
-          l'été et à côté de nombreux bars et restaurants. Au cœur de Paris avec
-          5 lignes de métro et de nombreux bus. Logement parfait pour les
-          voyageurs en solo et les voyageurs d'affaires. Vous êtes à1 station de
-          la gare de l'est (7 minutes à pied).
-        </p>
-      </div>
+      <div className="dropdown__content">{content}</div>
     </section>
   );
 }

@@ -1,12 +1,7 @@
-function Carousel() {
+function Carousel({ pictures }) {
   const urlTest1 =
     "https://images.unsplash.com/photo-1493612276216-ee3925520721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHwxfHxyYW5kb218ZW58MHx8MXx8MTY3MjA0MTkxOQ&ixlib=rb-4.0.3&q=80&w=1080";
 
-  const urlTest2 =
-    "https://images.unsplash.com/photo-1550686041-366ad85a1355?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHwxNXx8cmFuZG9tfGVufDB8fDF8fDE2NzIwNDE5MTk&ixlib=rb-4.0.3&q=80&w=1080";
-
-  const urlTest3 =
-    "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHw5fHxyYW5kb218ZW58MHx8MXx8MTY3MjA0MTkxOQ&ixlib=rb-4.0.3&q=80&w=1080";
   /*
 Will contain 3 images :
 
@@ -51,13 +46,7 @@ Will contain 3 images :
         <img
           src={urlTest1}
           alt="Test"
-          className={"carousel__image carousel__image--out-left"}
-        />
-        <img src={urlTest2} alt="Test" className={"carousel__image "} />
-        <img
-          src={urlTest3}
-          alt="Test"
-          className={"carousel__image carousel__image--out-right"}
+          className={"carousel__image carousel__image"}
         />
       </figure>
       <p className="carousel__image-index">1/4</p>

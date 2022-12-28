@@ -1,5 +1,5 @@
-function Tag() {
-  return <p className="tag__text">Bruh</p>;
+function Tag({ textValue }) {
+  return <p className="tag__text">{textValue}</p>;
 }
 
 export default Tag;

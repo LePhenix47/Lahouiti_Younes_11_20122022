@@ -13,6 +13,10 @@
     }
 
     &__dropdowns {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
         margin: 0 2.5% 40px 2.5%;
 
         @include mobile-only {

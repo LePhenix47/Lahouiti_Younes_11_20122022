@@ -1,4 +1,5 @@
-function StarRating() {
+function StarRating({ fullStars }) {
+  const emptyStars = 5 - fullStars;
   return (
     <section className="star-rating">
       <svg

@@ -18,6 +18,7 @@ export function useFetch(url) {
     log("Fetch →", { url });
     setLoading(true);
     if (!url) {
+      log("There must be an URL passed as an argument");
       return;
     }
 
@@ -42,6 +43,7 @@ export function useFetch(url) {
 
     //In case we make multiple fetch requests → we abort the rest of them if one fail or is out of sync
     return () => {
+      //This function will ONLY execute if the component who made the fetch request has been unmounted
       controller.abort();
     };
   }, [url]);
