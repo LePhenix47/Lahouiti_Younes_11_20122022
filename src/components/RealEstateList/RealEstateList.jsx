@@ -7,12 +7,6 @@ import { Link } from "react-router-dom";
 //Components
 import SpinLoader from "../SpinLoader/SpinLoader";
 
-//Utils
-import { urlAPI } from "../../utils/constants/urlAPI";
-import { useFetch } from "../../utils/hooks/useFetch";
-import { log } from "../../utils/functions/helperFunctions";
-// import { log } from "../../utils/functions/helperFunctions";
-
 function RealEstateList({ data, isLoading, hasError }) {
   return (
     <section className="home__real-estate-list">
@@ -42,7 +36,7 @@ function RealEstateList({ data, isLoading, hasError }) {
                   <p className="home__real-estate-title">{title}</p>
                   <img
                     className="home__real-estate-thumbnail"
-                    alt="test"
+                    alt={title}
                     src={cover}
                   />
                 </div>

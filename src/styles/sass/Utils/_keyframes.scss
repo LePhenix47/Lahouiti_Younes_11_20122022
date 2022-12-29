@@ -11,10 +11,14 @@
 @keyframes slide-out-right {
     from {
         translate: 0%;
+        opacity: 1;
+
     }
 
     to {
-        translate: 100%;
+        translate: 101%;
+        opacity: 0;
+
     }
 }
 
@@ -31,10 +35,23 @@
 @keyframes slide-out-left {
     from {
         translate: 0%;
+        opacity: 1;
     }
 
     to {
         translate: -101%;
+        opacity: 0;
+    }
+}
+
+
+@-webkit-keyframes full-spin {
+    from {
+        rotate: 0deg
+    }
+
+    to {
+        rotate: 360deg;
     }
 }
 
