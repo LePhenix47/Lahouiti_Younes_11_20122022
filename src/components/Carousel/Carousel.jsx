@@ -1,21 +1,54 @@
+//Utils
+import { log } from "../../utils/functions/helperFunctions";
+
 function Carousel({ pictures }) {
-  const urlTest1 =
-    "https://images.unsplash.com/photo-1493612276216-ee3925520721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTkyODd8MHwxfHNlYXJjaHwxfHxyYW5kb218ZW58MHx8MXx8MTY3MjA0MTkxOQ&ixlib=rb-4.0.3&q=80&w=1080";
+  const hasMoreThanOnePicture = pictures.length > 1;
+  const amountOfPictures = pictures.length;
 
-  /*
-Will contain 3 images :
+  const sliderData = {
+    direction: 0,
+    slideOutIndex: 0,
+    slideInIndex: 0,
+  };
 
-1st one - For the previous image
+  log({ hasMoreThanOnePicture });
 
-2nd one - For the current image
+  function changeSlider(event) {
+    const arrowDirection = event.target.dataset.arrowDirection;
 
-3rd one - For the next image
-*/
+    //We get the direction
+    arrowDirection === "right"
+      ? (sliderData.direction = 1)
+      : (sliderData.direction = -1);
+
+    //We get the index of the image the carousel is currently displaying
+
+    //We add the different exceptions to the slider
+    const userClicksNextOnLastSlide =
+      sliderData.slideOutIndex + sliderData.direction > pictures.length - 1;
+    const userClicksPreviousOnFirstSlide =
+      sliderData.slideOutIndex + sliderData.direction < 0;
+
+    if (userClicksNextOnLastSlide) {
+      sliderData.slideInIndex = 0;
+    } else if (userClicksPreviousOnFirstSlide) {
+      sliderData.slideInIndex = pictures.length - 1;
+    } else {
+      //Just pass to the previous/next slide
+      sliderData.slideInIndex = sliderData.slideOutIndex + sliderData.direction;
+    }
+  }
   return (
     <section className="carousel">
       {/*Left arrow*/}
       <svg
-        className="carousel__arrow carousel__arrow--left"
+        data-arrow-direction="left"
+        onClick={(e) => {
+          log({ e, type: e.target.dataset.arrowDirection });
+        }}
+        className={`carousel__arrow carousel__arrow--left ${
+          hasMoreThanOnePicture ? "show" : "hide"
+        }`}
         width="28"
         height="17"
         viewBox="0 0 28 17"
@@ -29,7 +62,13 @@ Will contain 3 images :
       </svg>
       {/*Right arrow*/}
       <svg
-        className="carousel__arrow carousel__arrow--right"
+        data-arrow-direction="right"
+        onClick={(e) => {
+          log({ e, type: e.target.dataset.arrowDirection });
+        }}
+        className={`carousel__arrow carousel__arrow--right ${
+          hasMoreThanOnePicture ? "show" : "hide"
+        }`}
         width="28"
         height="17"
         viewBox="0 0 28 17"
@@ -43,13 +82,19 @@ Will contain 3 images :
       </svg>
       {/*Carousel*/}
       <figure className="carousel__images-container">
-        <img
-          src={urlTest1}
-          alt="Test"
-          className={"carousel__image carousel__image"}
-        />
+        {pictures.map((imageUrl, index) => {
+          return (
+            <img
+              src={imageUrl}
+              alt="Test"
+              className={"carousel__image"}
+              key={`${imageUrl} - ${index}`}
+              data-index={index}
+            />
+          );
+        })}
       </figure>
-      <p className="carousel__image-index">1/4</p>
+      <p className="carousel__image-index">1/{amountOfPictures}</p>
     </section>
   );
 }

@@ -87,6 +87,10 @@
 
         color: var(--text-color-secondary);
 
+        &:hover {
+            cursor: pointer;
+        }
+
         &--left {
             rotate: -90deg;
             left: 5%;
@@ -101,6 +105,7 @@
     &__image {
         position: absolute;
         @include fit-image;
+        user-select: none;
 
         width: 100%;
         height: 415px;
@@ -116,12 +121,12 @@
 
         &--out-right {
             z-index: 2;
-            animation: slide-out-right 1s ease-in-out 1 forwards;
+            animation: slide-out-right 1s ease-in-out 1 both;
         }
 
         &--out-left {
             z-index: 2;
-            animation: slide-out-left 1s ease-in-out 1 forwards;
+            animation: slide-out-left 1s ease-in-out 1 both;
         }
 
         // Might be needed in the future

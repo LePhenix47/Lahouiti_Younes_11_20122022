@@ -13,11 +13,50 @@ import { log } from "../../utils/functions/helperFunctions";
 import { urlAPI } from "../../utils/constants/urlAPI";
 import { useFetch } from "../../utils/hooks/useFetch";
 
+import {
+  changeMetadataTitle,
+  changeMetadataDescription,
+} from "../../utils/functions/metadataFunctions";
+
 //Page
 function HousingFile() {
   const { id } = useParams();
 
-  const { data, isLoading, hasError } = useFetch(urlAPI);
+  // const { data, isLoading, hasError } = useFetch(urlAPI);
+
+  //TEMPORARY FIX
+  const data = [
+    {
+      id: "c67ab8a7",
+      title: "Appartement cosy",
+      cover:
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+      pictures: [
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg",
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-3.jpg",
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-4.jpg",
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-5.jpg",
+      ],
+      description:
+        "Votre maison loin de chez vous. Que vous veniez de l'autre bout du monde, ou juste de quelques stations de RER, vous vous sentirez chez vous dans notre appartement.",
+      host: {
+        name: "Nathalie Jean",
+        picture:
+          "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-12.jpg",
+      },
+      rating: "5",
+      location: "Ile de France - Paris 17e",
+      equipments: [
+        "Équipements de base",
+        "Micro-Ondes",
+        "Douche italienne",
+        "Frigo",
+        "WIFI",
+      ],
+      tags: ["Batignolle", "Montmartre"],
+    },
+  ];
 
   const arrayOfIds = data.map((estateData) => {
     return estateData.id;
@@ -27,7 +66,7 @@ function HousingFile() {
     return idString === id;
   });
 
-  log({ id, data, isLoading, hasError, arrayOfIds, idInUrlParamsExists });
+  //If the id doesn't not exist in the array of ids → redirect the user to the error page
   if (!idInUrlParamsExists) {
     return <Navigate to="/Error_Page_404" replace={true} />;
   }
@@ -51,6 +90,11 @@ function HousingFile() {
     equipments,
     tags,
   } = dataOfHousing[0];
+
+  //TEMPORARY FIX
+
+  changeMetadataTitle(title);
+  changeMetadataDescription(description);
 
   return (
     <main className="housing-file">

@@ -5,6 +5,11 @@ import Dropdown from "../../components/Dropdown/Dropdown";
 //Images
 import Banner from "../../assets/images/photos/banner-about.png";
 
+import {
+  changeMetadataTitle,
+  changeMetadataDescription,
+} from "../../utils/functions/metadataFunctions";
+
 function About() {
   const classNameForBanner = "about__banner";
 
@@ -15,6 +20,13 @@ function About() {
     "Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. N'hésitez pas à nous contacter si vous avez la moindre question.",
     "La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.",
   ];
+
+  changeMetadataTitle("Page de à propos de Kasa");
+  changeMetadataDescription(
+    `Nous sommes au service de la conversation publique
+    Découvrez plus d'informations sur l'entreprise Kasa et ce que nous faisons pour que les loueurs puissent vivre librement et en toute sécurité sur nos logements.
+    `
+  );
 
   return (
     <main className="about">
