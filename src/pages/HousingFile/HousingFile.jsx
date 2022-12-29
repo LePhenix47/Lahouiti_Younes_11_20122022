@@ -25,34 +25,25 @@ function HousingFile() {
   // const { data, isLoading, hasError } = useFetch(urlAPI);
   const data = [
     {
-      id: "c67ab8a7",
-      title: "Appartement cosy",
+      id: "2139a317",
+      title: "Cheap - Chambre Paris 20",
       cover:
-        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-17-1.jpg",
       pictures: [
-        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
-        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg",
-        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-3.jpg",
-        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-4.jpg",
-        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-5.jpg",
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-17-1.jpg",
+        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-17-1.jpg",
       ],
       description:
-        "Votre maison loin de chez vous. Que vous veniez de l'autre bout du monde, ou juste de quelques stations de RER, vous vous sentirez chez vous dans notre appartement.",
+        "Cette chambre dispose de toutes les facilités nécessaires. Proche métro et commerces.",
       host: {
-        name: "Nathalie Jean",
+        name: "Hugo Perrier",
         picture:
-          "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-12.jpg",
+          "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-4.jpg",
       },
-      rating: "5",
-      location: "Ile de France - Paris 17e",
-      equipments: [
-        "Équipements de base",
-        "Micro-Ondes",
-        "Douche italienne",
-        "Frigo",
-        "WIFI",
-      ],
-      tags: ["Batignolle", "Montmartre"],
+      rating: "2",
+      location: "Ile de France - Paris 20e",
+      equipments: ["Bouilloire", "Wi-fi", "Micro-Ondes"],
+      tags: ["Vue Parc", "Métros"],
     },
   ];
 
