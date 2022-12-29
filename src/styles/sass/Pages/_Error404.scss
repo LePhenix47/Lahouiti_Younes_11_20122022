@@ -11,10 +11,18 @@
     &__title {
         font-weight: 700;
         font-size: 288px;
+
+        @include mobile-only {
+            font-size: 96px;
+        }
     }
 
     &__sub-title {
         font-size: 36px;
+
+        @include mobile-only {
+            font-size: 18px;
+        }
     }
 
     &__link {
@@ -24,6 +32,10 @@
 
         &:hover {
             color: var(--text-color-primary--hover)
+        }
+
+        @include mobile-only {
+            font-size: 14px;
         }
     }
 }

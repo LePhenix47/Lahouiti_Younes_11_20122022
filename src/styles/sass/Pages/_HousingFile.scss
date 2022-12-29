@@ -87,6 +87,11 @@
 
         color: var(--text-color-secondary);
 
+        @include mobile-only {
+            width: 24px;
+            height: 40px;
+        }
+
         &:hover {
             cursor: pointer;
         }
@@ -112,6 +117,7 @@
 
         @include mobile-only {
             height: 255px;
+            border-radius: 10px;
         }
 
 
@@ -163,6 +169,10 @@
         bottom: 25px;
         left: 50%;
         translate: -50% 0;
+
+        @include mobile-only {
+            display: none;
+        }
     }
 }
 
@@ -176,11 +186,13 @@
 
         padding: 3px 40px;
 
-        @include mobile-only {
-            padding: 3px 25px;
-        }
-
         border-radius: 10px;
+
+        @include mobile-only {
+            font-size: 12px;
+            padding: 3px 25px;
+            border-radius: 5px;
+        }
     }
 }
 
@@ -253,6 +265,17 @@
 
         transition: rotate 350ms ease-in-out;
 
+        @include mobile-only {
+            top: 9px;
+        }
+
+        &-icon {
+            @include mobile-only {
+                width: 24px;
+                height: 14px;
+            }
+        }
+
         &--active {
             rotate: 180deg;
         }
@@ -268,8 +291,12 @@
         width: 100%;
 
         padding: 20px 13px;
-
         border-radius: 10px;
+
+        @include mobile-only {
+            padding: 10px 7px;
+            border-radius: 5px;
+        }
     }
 
 
@@ -282,6 +309,10 @@
         overflow: hidden;
 
         transition: height 350ms ease-in-out;
+
+        @include mobile-only {
+            font-size: 16px;
+        }
 
         &--active {
             height: fit-content;

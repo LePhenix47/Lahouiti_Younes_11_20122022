@@ -5,10 +5,12 @@
     &__banner {
         @include banner-style;
 
+
         @include mobile-only {
             height: 110px;
             min-height: 110px;
             margin-bottom: 30px;
+            border-radius: 10px;
         }
 
         &-slogan {

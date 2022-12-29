@@ -1,8 +1,10 @@
 @use "../Utils/" as *;
 
 .spin-loader {
+
+    --spin-loader-height: 300px;
     width: 100%;
-    height: 300px;
+    height: var(--spin-loader-height);
     order: -2;
     @include center-flex;
     grid-column-start: 2;
@@ -13,8 +15,9 @@
 
     @include mobile-only {
         grid-column-start: 1;
-
+        --spin-loader-height: 150px;
     }
+
 
     &__circle {
         aspect-ratio: 1/1;
