@@ -10,6 +10,8 @@ function Carousel({ pictures }) {
 
   const [indexOfImage, updateIndexOfImage] = useState(0);
 
+  const [slideClass, setSlideClass] = useState("");
+
   const carouselData = {
     direction: 0,
     imageOutIndex: 0,
@@ -19,6 +21,8 @@ function Carousel({ pictures }) {
   let imageUrl = pictures[indexOfImage];
 
   function changeImage(event) {
+    resetSlideAnimation();
+
     const arrowDirection = event.currentTarget.dataset.arrowDirection;
 
     //We get the direction
@@ -46,8 +50,25 @@ function Carousel({ pictures }) {
         carouselData.imageOutIndex + carouselData.direction;
     }
 
-    updateIndexOfImage(carouselData.imageInIndex);
-    log(carouselData);
+    addSlideAnimations(arrowDirection);
+  }
+
+  function addSlideAnimations(direction) {
+    const oppositeDirection = direction === "right" ? "left" : "right";
+    setSlideClass(`carousel__image--out-${oppositeDirection}`);
+
+    setTimeout(() => {
+      updateIndexOfImage(carouselData.imageInIndex);
+      log(carouselData);
+    }, 1_000);
+
+    setTimeout(() => {
+      setSlideClass(`carousel__image--in-${direction}`);
+    }, 1_000);
+  }
+
+  function resetSlideAnimation() {
+    setSlideClass("");
   }
   return (
     <section className="carousel">
@@ -93,24 +114,10 @@ function Carousel({ pictures }) {
       </svg>
       {/*Carousel*/}
       <figure className="carousel__images-container">
-        {/* {pictures.map((imageUrl, index) => {
-          return (
-            <img
-              src={imageUrl}
-              alt="Test"
-              className={"carousel__image"}
-              key={`${imageUrl} - ${index}`}
-              data-index={index}
-            />
-          );
-        })} */}
-
         <img
           src={imageUrl}
           alt="Test"
-          className={"carousel__image"}
-          key={`${imageUrl}`}
-          data-index={indexOfImage}
+          className={`carousel__image ${slideClass}`}
         />
       </figure>
       <p className="carousel__image-index">
