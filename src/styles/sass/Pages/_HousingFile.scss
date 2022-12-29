@@ -257,7 +257,7 @@
 
     &__label {
         position: absolute;
-        top: 17px;
+        top: 20px;
         right: 15px;
 
         color: var(--text-color-secondary);
@@ -286,6 +286,8 @@
         background-color: var(--bg-color-primary);
         color: var(--text-color-secondary);
 
+        font-size: 18px;
+
         position: relative;
         text-align: left;
 
@@ -297,6 +299,7 @@
         @include mobile-only {
             padding: 10px 7px;
             border-radius: 5px;
+            font-size: 14px;
         }
     }
 

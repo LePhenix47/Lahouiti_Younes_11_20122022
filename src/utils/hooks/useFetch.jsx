@@ -13,7 +13,8 @@ export function useFetch(url) {
 
   //Will execute once and also everytime the url changes
   useEffect(() => {
-    const controller = new AbortController(); //We need the controller in case we make multiple successions of fetch requests
+    //We need the controller in case we make multiple successions of fetch requests
+    const controller = new AbortController();
 
     log("Fetch →", { url });
     setLoading(true);
@@ -31,7 +32,7 @@ export function useFetch(url) {
         setData(dataFromFetch);
       } catch (APIError) {
         console.error(
-          `⚠ API Error found! An unexpected error has occured while attemting to make a call to the API → ${APIError}`
+          `⚠ API Error found! An unexpected error has occured while attempting to make a call to the API → ${APIError}`
         );
         setError(true);
         setErrorMessage(APIError);
@@ -43,14 +44,10 @@ export function useFetch(url) {
 
     //In case we make multiple fetch requests → we abort the rest of them if one fail or is out of sync
     return () => {
-      //This function will ONLY execute if the component who made the fetch request has been unmounted
+      //This function will ONLY execute if the component who made the fetch request has been unmounted from the DOM
       controller.abort();
     };
   }, [url]);
 
-  if (hasError) {
-    return { isLoading, hasError, errorMessage };
-  }
-
-  return { data, isLoading, hasError };
+  return { data, isLoading, hasError, errorMessage };
 }

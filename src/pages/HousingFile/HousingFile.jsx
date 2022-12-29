@@ -17,6 +17,7 @@ import {
   changeMetadataTitle,
   changeMetadataDescription,
 } from "../../utils/functions/metadataFunctions";
+import SpinLoader from "../../components/SpinLoader/SpinLoader";
 
 //Page
 function HousingFile() {
@@ -58,6 +59,12 @@ function HousingFile() {
   //     tags: ["Batignolle", "Montmartre"],
   //   },
   // ];
+
+  //If the data is loading
+  const dataIsStillLoading = isLoading || !data.length;
+  if (dataIsStillLoading) {
+    return <SpinLoader />;
+  }
 
   const arrayOfIds = data.map((estateData) => {
     return estateData.id;
