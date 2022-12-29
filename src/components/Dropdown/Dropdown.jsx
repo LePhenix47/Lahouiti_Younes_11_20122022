@@ -1,9 +1,20 @@
+//React
 import { useState } from "react";
+
+//React Router (v6)
+import {
+  log,
+  formatText,
+  normalizeString,
+} from "../../utils/functions/helperFunctions";
 
 function Dropdown({ textType, textValue }) {
   const [isCollapsed, setCollapsed] = useState(false);
 
   let content = null;
+
+  let formattedType = formatText(textType, "lowercase");
+  formattedType = normalizeString(formattedType);
 
   const textIsAList = typeof textValue === "object"; //Arrays in JS are prototypes → kinda like objects
 
@@ -35,7 +46,7 @@ function Dropdown({ textType, textValue }) {
     <section className="dropdown">
       <div className="dropdown__container">
         <label
-          htmlFor="test"
+          htmlFor={formattedType}
           className={`dropdown__label ${
             isCollapsed ? "dropdown__label--active" : ""
           }`}
@@ -57,7 +68,7 @@ function Dropdown({ textType, textValue }) {
         <button
           className="dropdown__button"
           type="button"
-          id={"test"}
+          id={formattedType}
           onClick={() => {
             setCollapsed(!isCollapsed);
           }}

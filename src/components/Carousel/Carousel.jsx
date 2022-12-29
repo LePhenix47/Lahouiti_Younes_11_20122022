@@ -1,3 +1,6 @@
+//React
+import { useState } from "react";
+
 //Utils
 import { log } from "../../utils/functions/helperFunctions";
 
@@ -5,38 +8,46 @@ function Carousel({ pictures }) {
   const hasMoreThanOnePicture = pictures.length > 1;
   const amountOfPictures = pictures.length;
 
-  const sliderData = {
+  const [indexOfImage, updateIndexOfImage] = useState(0);
+
+  const carouselData = {
     direction: 0,
-    slideOutIndex: 0,
-    slideInIndex: 0,
+    imageOutIndex: 0,
+    imageInIndex: 0,
   };
 
-  log({ hasMoreThanOnePicture });
+  let imageUrl = pictures[indexOfImage];
 
-  function changeSlider(event) {
-    const arrowDirection = event.target.dataset.arrowDirection;
+  function changeImage(event) {
+    const arrowDirection = event.currentTarget.dataset.arrowDirection;
 
     //We get the direction
     arrowDirection === "right"
-      ? (sliderData.direction = 1)
-      : (sliderData.direction = -1);
+      ? (carouselData.direction = 1)
+      : (carouselData.direction = -1);
 
-    //We get the index of the image the carousel is currently displaying
+    log({ arrowDirection });
 
-    //We add the different exceptions to the slider
-    const userClicksNextOnLastSlide =
-      sliderData.slideOutIndex + sliderData.direction > pictures.length - 1;
-    const userClicksPreviousOnFirstSlide =
-      sliderData.slideOutIndex + sliderData.direction < 0;
+    carouselData.imageOutIndex = indexOfImage;
 
-    if (userClicksNextOnLastSlide) {
-      sliderData.slideInIndex = 0;
-    } else if (userClicksPreviousOnFirstSlide) {
-      sliderData.slideInIndex = pictures.length - 1;
+    //We add the different exceptions to the Image
+    const userClicksNextOnLastImage =
+      carouselData.imageOutIndex + carouselData.direction > pictures.length - 1;
+    const userClicksPreviousOnFirstImage =
+      carouselData.imageOutIndex + carouselData.direction < 0;
+
+    if (userClicksNextOnLastImage) {
+      carouselData.imageInIndex = 0;
+    } else if (userClicksPreviousOnFirstImage) {
+      carouselData.imageInIndex = pictures.length - 1;
     } else {
       //Just pass to the previous/next slide
-      sliderData.slideInIndex = sliderData.slideOutIndex + sliderData.direction;
+      carouselData.imageInIndex =
+        carouselData.imageOutIndex + carouselData.direction;
     }
+
+    updateIndexOfImage(carouselData.imageInIndex);
+    log(carouselData);
   }
   return (
     <section className="carousel">
@@ -44,7 +55,7 @@ function Carousel({ pictures }) {
       <svg
         data-arrow-direction="left"
         onClick={(e) => {
-          log({ e, type: e.target.dataset.arrowDirection });
+          changeImage(e);
         }}
         className={`carousel__arrow carousel__arrow--left ${
           hasMoreThanOnePicture ? "show" : "hide"
@@ -64,7 +75,7 @@ function Carousel({ pictures }) {
       <svg
         data-arrow-direction="right"
         onClick={(e) => {
-          log({ e, type: e.target.dataset.arrowDirection });
+          changeImage(e);
         }}
         className={`carousel__arrow carousel__arrow--right ${
           hasMoreThanOnePicture ? "show" : "hide"
@@ -82,7 +93,7 @@ function Carousel({ pictures }) {
       </svg>
       {/*Carousel*/}
       <figure className="carousel__images-container">
-        {pictures.map((imageUrl, index) => {
+        {/* {pictures.map((imageUrl, index) => {
           return (
             <img
               src={imageUrl}
@@ -92,9 +103,19 @@ function Carousel({ pictures }) {
               data-index={index}
             />
           );
-        })}
+        })} */}
+
+        <img
+          src={imageUrl}
+          alt="Test"
+          className={"carousel__image"}
+          key={`${imageUrl}`}
+          data-index={indexOfImage}
+        />
       </figure>
-      <p className="carousel__image-index">1/{amountOfPictures}</p>
+      <p className="carousel__image-index">
+        {indexOfImage + 1}/{amountOfPictures}
+      </p>
     </section>
   );
 }

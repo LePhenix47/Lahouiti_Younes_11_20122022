@@ -14,14 +14,14 @@ export function formatText(string, option) {
       for (let i = 0; i < stringArray.length; i++) {
         stringArray[i] = stringArray[i].toLowerCase();
       }
-      return stringArray;
+      return stringArray.toString();
     }
 
     case "uppercase": {
       for (let i = 0; i < stringArray.length; i++) {
         stringArray[i] = stringArray[i].toUpperCase();
       }
-      return stringArray;
+      return stringArray.toString();
     }
     case "titlecase": {
       for (let i = 0; i < stringArray.length; i++) {
@@ -30,7 +30,7 @@ export function formatText(string, option) {
           stringArray[i].slice(1).toLowerCase();
       }
       stringArray = stringArray.concat();
-      return stringArray;
+      return stringArray.toString();
     }
     default: {
       throw new Error(
@@ -43,6 +43,10 @@ export function formatText(string, option) {
 //Funtion that replaces letters with accents by their "non-accented" counter-part
 //ex: "crème brûlée" → "creme brulee"
 export function normalizeString(string) {
+  if (typeof string !== "string") {
+    log("Value passed in argument is not a string");
+    return;
+  }
   return string
     .normalize("NFD") // returns the unicode NORMALIZATION FORM of the string using a canonical DECOMPOSITION (NFD).
     .replace(/[\u0300-\u036f]/g, "");

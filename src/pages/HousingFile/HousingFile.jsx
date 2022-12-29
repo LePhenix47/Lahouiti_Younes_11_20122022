@@ -23,8 +23,6 @@ function HousingFile() {
   const { id } = useParams();
 
   // const { data, isLoading, hasError } = useFetch(urlAPI);
-
-  //TEMPORARY FIX
   const data = [
     {
       id: "c67ab8a7",
