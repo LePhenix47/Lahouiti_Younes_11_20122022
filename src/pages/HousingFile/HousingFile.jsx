@@ -24,7 +24,7 @@ function HousingFile() {
   const { id } = useParams();
 
   //This part is asynchrnous so it gets executed last
-  const { data, isLoading, hasError } = useFetch(urlAPI);
+  const { data, isLoading } = useFetch(urlAPI);
 
   //If the data is loading
   const dataIsStillLoading = isLoading || !data.length;
