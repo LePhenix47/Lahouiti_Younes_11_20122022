@@ -126,11 +126,13 @@
 
         &--out-right {
             z-index: 2;
+            -webkit-animation: slide-out-right 1s ease-in-out 1 both;
             animation: slide-out-right 1s ease-in-out 1 both;
         }
 
         &--out-left {
             z-index: 2;
+            -webkit-animation: slide-out-left 1s ease-in-out 1 both;
             animation: slide-out-left 1s ease-in-out 1 both;
         }
 
@@ -323,6 +325,8 @@
         }
 
         &--active {
+            height: -webkit-fit-content;
+            height: -moz-fit-content;
             height: fit-content;
         }
     }
